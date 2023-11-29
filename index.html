@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EEE Department</title>
+  <style>
+
+body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header {
+      background-color: #4CAF50; /* Green theme color */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .logo {
+      max-width: 100px;
+      margin-left: 20px;
+    }
+
+    .footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 10px;
+      background-color: #4CAF50; /* Green theme color */
+      color: #fff;
+    }
+
+    /* Reset some default styles for consistency */
+    body, ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Department name styles */
+    .department-name {
+      background-color: #66bb6a; /* Light Green */
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 24px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .department-name:hover {
+      background-color: #388e3c; /* Darker Green on hover */
+      color: #ffffff; /* White on hover */
+      transform: scale(1.05); /* Slightly larger on hover */
+    }
+
+    /* Main navigation styles */
+    header {
+      background-color: #388e3c; /* Darker Green */
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff; /* White */
+      font-weight: bold;
+      padding: 8px 16px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #66bb6a; /* Light Green on hover */
+      color: #333; /* Dark Gray on hover */
+    }
+
+    /* Dropdown menu styles */
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #388e3c; /* Darker Green */
+      top: 100%;
+      left: 0;
+      width: 200px;
+      z-index: 1;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul li {
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+      border-top: 1px solid #66bb6a; /* Light Green */
+    }
+
+    nav ul ul a {
+      color: white;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f0f0f0; /* Very light grey */
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    .popup-content {
+      text-align: justify;
+    }
+
+    .popup-text {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .popup-buttons {
+      margin-top: 15px;
+    }
+
+    .popup-buttons button {
+      background-color: #66bb6a; /* Light Green */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .popup-buttons button:hover {
+      background-color: #388e3c; /* Darker Green on hover */
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img class="logo" src="https://www.stellamaryscoe.edu.in/img/logo.png" alt="Stella Mary's College of Engineering Logo">
+    <h1>Stella Mary's College of Engineering</h1>
+  </header>
+
+  <div class="department-name">DEPARTMENT OF ELECTRONICS AND ELECTRONICS ENGINEERING</div>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#" id="contact-link">Contact Department</a></li> <!-- Added an ID -->
+        <li><a href="#" id="enquiry-link">Admission Enquiry</a></li> <!-- Added an ID -->
+        <li><a href="#" id="about-link">About Department</a></li>
+        <li>
+          <a href="#">Activity</a>
+          <ul>
+            <li><a href="#">Industrial Visits</a></li>
+            <li><a href="#">Programs</a></li>
+            <li><a href="#">Symposiums</a></li>
+            <li><a href="#">Student Projects</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Popup for Admission Enquiry -->
+  <div class="popup" id="enquiry-popup">
+    <div class="popup-content">
+      <p class="popup-text">College Phone: +1-123-456-7890</p>
+      <p class="popup-text">College Address: 123 College St, City, Country</p>
+      <div class="popup-buttons">
+        <button id="enquiry-cancel-button">Cancel</button>
+        <a href="tel:+11234567890"><button>Call</button></a>
+        <a href="sms:+11234567890"><button>Message</button></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup for HoD Contact -->
+  <div class="popup" id="contact-popup">
+    <div class="popup-content">
+      <p class="popup-text">Dr. A.R. Gayathri <br></p>
+      <p class="popup-text">Head Of Department <br></p>
+      <p class="popup-text">Dept. Of EEE,<br> Stella Mary's College Of Engineering.</p>
+      <div class="popup-buttons">
+        <button id="contact-cancel-button">Close</button>
+        <a href="tel:+123456789"><button>Call</button></a>
+        <a href="mailto:hod@example.com"><button>Email</button></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup for Vision and Mission -->
+  <div class="popup" id="vision-mission-popup">
+    <div class="popup-content">
+      <h2 class="popup-text">Vision</h2>
+      <p class="popup-text">To transform the rural student community into internationally competent electrical engineers by providing a venue for resourceful teaching learning process, research and inculcating human values.</p>
+      <h2 class="popup-text">Mission</h2>
+      <ul class="popup-text">
+        <li>By empowering the graduates with superior knowledge and technical skills in Electrical and Electronics Engineering.</li>
+        <li>By evaluating, synthesizing, and applying scientific and electrical engineering principles to deal with industrial problems by means of creative research.</li>
+        <li>By producing technically competent graduates who are able to offer practicable solutions to meet the energy scarcity of the nation.</li>
+        <li>By facilitating the students to become experts and entrepreneurs to resolve technologies of the electrical & allied engineering with the motive of developing the society.</li>
+      </ul>
+      <div class="popup-buttons">
+        <button id="vision-mission-cancel-button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2023 Stella Mary's College of Engineering. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // JavaScript for interactive features
+    const enquiryLink = document.getElementById("enquiry-link");
+    const contactLink = document.getElementById("contact-link");
+    const visionMissionLink = document.getElementById("about-link"); // Updated ID
+    const enquiryPopup = document.getElementById("enquiry-popup");
+    const contactPopup = document.getElementById("contact-popup");
+    const visionMissionPopup = document.getElementById("vision-mission-popup");
+    const enquiryCancelButton = document.getElementById("enquiry-cancel-button");
+    const contactCancelButton = document.getElementById("contact-cancel-button");
+    const visionMissionCancelButton = document.getElementById("vision-mission-cancel-button");
+
+    enquiryLink.addEventListener("click", () => {
+      enquiryPopup.style.display = "block";
+    });
+
+    contactLink.addEventListener("click", () => {
+      contactPopup.style.display = "block";
+    });
+
+    visionMissionLink.addEventListener("click", () => {
+      visionMissionPopup.style.display = "block";
+    });
+
+    enquiryCancelButton.addEventListener("click", () => {
+      enquiryPopup.style.display = "none";
+    });
+
+    contactCancelButton.addEventListener("click", () => {
+      contactPopup.style.display = "none";
+    });
+
+    visionMissionCancelButton.addEventListener("click", () => {
+      visionMissionPopup.style.display = "none";
+    });
+  </script>
+</body>
+</html>
